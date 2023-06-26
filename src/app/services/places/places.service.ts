@@ -10,14 +10,19 @@ export class PlacesService {
   categories: PlaceCategory[] = [];
 
   constructor(private http: HttpClient) {
-    this.getCategories().subscribe((categories) => {
-      this.categories = categories.result;
-    });
+    this.getCategories().subscribe(
+      (categories) => {
+        this.categories = categories.result;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   getCategories(): Observable<ApiResponse<PlaceCategory[]>> {
     return this.http.get<ApiResponse<PlaceCategory[]>>(
-      `${environment.endpoint}Categories`,
+      `${environment.endpoint}categories`,
       {
         headers: new HttpHeaders({ 'Skip-Interceptor': '' }),
       }
@@ -25,12 +30,13 @@ export class PlacesService {
   }
 
   getPlaces(payload: {
-    city: string;
-    category: string;
+    City: string;
+    Category: string;
   }): Observable<ApiResponse<Place[]>> {
-    return this.http.get<ApiResponse<Place[]>>(`${environment.endpoint}place`, {
-      headers: new HttpHeaders({ 'Skip-Interceptor': '' }),
-      params: payload,
-    });
+    return this.http.post<ApiResponse<Place[]>>(
+      `${environment.endpoint}api/v1/Place`,
+      { ...payload },
+      { headers: new HttpHeaders({ 'Skip-Interceptor': '' }) }
+    );
   }
 }

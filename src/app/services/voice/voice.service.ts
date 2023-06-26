@@ -64,7 +64,6 @@ export class VoiceService {
           Date.now() - this.recognition.lastActive > 200
         ) {
           this.recognition.start();
-          debugger;
           this.recognition.lastActive = Date.now();
         }
       }

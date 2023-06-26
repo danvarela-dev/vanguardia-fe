@@ -1,0 +1,25 @@
+.place-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  box-sizing: border-box;
+  width: 330px;
+  height: 150px;
+  box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+  background-color: white;
+
+  .icon i {
+    font-size: 32px;
+    color: #4adede;
+  }
+
+  .right {
+    display: flex;
+    font-size: large;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

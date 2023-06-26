@@ -67,3 +67,26 @@
     }
   }
 }
+
+.response {
+  display: flex;
+  justify-content: center;
+
+  .place {
+
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 8px;
+    }
+  }
+}
+
+
+.noResults span {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: xx-large;
+  font-weight: 700;
+}

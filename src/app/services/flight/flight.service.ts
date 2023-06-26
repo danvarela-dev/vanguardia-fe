@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiResponse } from 'src/app/interfaces/api-response.interface';
@@ -11,9 +11,26 @@ export class FlightService {
 
   getFlights(): Observable<ApiResponse<FlightInfo>> {
     return this.http.get<ApiResponse<FlightInfo>>(
-      `${environment.endpoint}flights`
+      `${environment.endpoint}flights`,
+      { headers: new HttpHeaders({ 'Skip-Interceptor': '' }) }
     );
   }
 
-  // postFlight(): Observable
+  getFlightById(id: string): Observable<ApiResponse<FlightInfo>> {
+    return this.http.get<ApiResponse<FlightInfo>>(
+      `${environment.endpoint}flights/${id}`,
+      { headers: new HttpHeaders({ 'Skip-Interceptor': '' }) }
+    );
+  }
+
+  searchFlight(
+    date: string,
+    destination: string,
+    source: string
+  ): Observable<ApiResponse<FlightInfo>> {
+    return this.http.get<ApiResponse<FlightInfo>>(
+      `${environment.endpoint}api/v1/Flight/source/${source}/destination/${destination}/date/${date}`,
+      { headers: new HttpHeaders({ 'Skip-Interceptor': '' }) }
+    );
+  }
 }

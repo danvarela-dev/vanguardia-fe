@@ -11,9 +11,11 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RequestInterceptor } from './interceptor/request.interceptor';
 import { PlacesService } from './services/places/places.service';
 import { FlightService } from './services/flight/flight.service';
+import { FlightCardComponent } from './components/flight-card/flight-card.component';
+import { PlaceCardComponent } from './components/place-card/place-card.component';
 
 @NgModule({
-  declarations: [AppComponent, ChatComponent],
+  declarations: [AppComponent, ChatComponent, FlightCardComponent, PlaceCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

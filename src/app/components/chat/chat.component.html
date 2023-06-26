@@ -11,12 +11,20 @@
     <i class="ri-mic-fill"></i>
   </div>
 </div>
-<div class="response">
+<div class="noResults" *ngIf="loading"><span>Loading...</span></div>
+<div class="response" *ngIf="!loading">
   <div class="result">
     <div class="flight" *ngIf="currentState === 'flight'">
       flights goes here
     </div>
-    <div class="place" *ngIf="currentState === 'place'">places goes here</div>
+    <div class="place" *ngIf="currentState === 'place'">
+      <div class="content">
+        <app-place-card
+          *ngFor="let place of places"
+          [place]="place"
+        ></app-place-card>
+      </div>
+    </div>
     <div class="calendar" *ngIf="currentState === 'calendar'">
       calendar goes here
     </div>
