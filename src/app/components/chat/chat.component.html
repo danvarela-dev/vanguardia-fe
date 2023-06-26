@@ -1,0 +1,16 @@
+<div class="chat">
+  <div class="chat__input">
+    <input
+      [formControl]="chatControl"
+      type="text"
+      placeholder="Escriba su mensaje aqui..."
+    />
+    <i class="ri-send-plane-2-line"></i>
+  </div>
+  <div class="chat__micro" [ngClass]="{listening}" (click)="toggleListening()">
+    <i class="ri-mic-fill"></i>
+  </div>
+</div>
+<div class="response">
+  
+</div>

@@ -1,0 +1,69 @@
+.chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+  margin: 16px 40px;
+
+  &__micro {
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 14px;
+
+    &:hover,
+    &.listening {
+      cursor: pointer;
+      background-color: #4adede;
+    }
+
+    i {
+      font-size: large;
+      color: white;
+    }
+  }
+
+
+  &__input {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding: 8px 24px;
+    border: 1px solid white;
+    border-radius: 12px;
+
+    input {
+      border: none;
+      background-color: transparent;
+      color: white;
+      font-size: 16px;
+      width: 100%;
+
+      &::placeholder {
+        color: white;
+      }
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
+    }
+
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-weight: 500;
+
+
+      &:hover {
+        cursor: pointer;
+        background-color: #4adede;
+      }
+    }
+  }
+}
