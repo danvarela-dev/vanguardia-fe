@@ -5,12 +5,20 @@
       type="text"
       placeholder="Escriba su mensaje aqui..."
     />
-    <i class="ri-send-plane-2-line"></i>
+    <i class="ri-send-plane-2-line" (click)="sendChat()"></i>
   </div>
   <div class="chat__micro" [ngClass]="{listening}" (click)="toggleListening()">
     <i class="ri-mic-fill"></i>
   </div>
 </div>
 <div class="response">
-  
+  <div class="result">
+    <div class="flight" *ngIf="currentState === 'flight'">
+      flights goes here
+    </div>
+    <div class="place" *ngIf="currentState === 'place'">places goes here</div>
+    <div class="calendar" *ngIf="currentState === 'calendar'">
+      calendar goes here
+    </div>
+  </div>
 </div>

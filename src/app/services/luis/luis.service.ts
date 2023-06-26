@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Response } from 'src/app/interfaces/response.interface';
+import { Response } from 'src/app/interfaces/luis-response.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -19,7 +19,7 @@ export class LuisService {
       },
     };
     return this.http.post<Response>(
-      `${environment.endpoint}language/:analyze-conversations?api-version=2023-04-01`,
+      `${environment.luisendpoint}language/:analyze-conversations?api-version=2023-04-01`,
       body
     );
   }

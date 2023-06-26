@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LuisService } from './services/luis/luis.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RequestInterceptor } from './interceptor/request.interceptor';
+import { PlacesService } from './services/places/places.service';
+import { FlightService } from './services/flight/flight.service';
 
 @NgModule({
   declarations: [AppComponent, ChatComponent],
@@ -21,6 +23,8 @@ import { RequestInterceptor } from './interceptor/request.interceptor';
   providers: [
     VoiceService,
     LuisService,
+    PlacesService,
+    FlightService,
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

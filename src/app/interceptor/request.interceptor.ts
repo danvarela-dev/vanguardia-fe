@@ -15,9 +15,13 @@ export class RequestInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
+    if (request.headers.has('Skip-Interceptor')) {
+      return next.handle(request);
+    }
+
     const { body } = request;
     const bodyObj = Object.fromEntries(
-      Object.entries(body).filter(([_, v]) => v != null)
+      Object.entries(body || {}).filter(([_, v]) => v != null)
     );
 
     const clonedRequest = request.clone({
